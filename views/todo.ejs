@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ma todolist</title>
+        <style>
+            a {text-decoration: none; color: rgb(255, 0, 0);}
+            h1 {text-decoration: none; color: rgb(0, 0, 255);}
+        </style>
+    </head>
+
+    <body>
+        <h1>Ma todolist</h1>
+
+        <ul>
+        <% todolist.forEach(function(todo, index) { %>
+            <li><a href="/todo/supprimer/<%= index %>">✘</a> <a href="/todo/modif/<%= index %>">🔄</a> <%= todo %></li>
+        <% }); %>
+        </ul>
+
+        <form action="/todo/ajouter/" method="post">
+            <p>
+                <label for="newtodo">Que dois-je faire ?</label>
+                <input type="text" name="newtodo" id="newtodo" autofocus />
+                <input type="submit" />
+            </p>
+        </form>
+
+        <form action="/todo/modif/" method="post">
+            <p>
+                <label for="change">modif ?</label>
+                <input type="text" name="change" id="change" autofocus />
+                <input type="submit" />
+            </p>
+        </form>
+
+
+    </body>
+</html>
